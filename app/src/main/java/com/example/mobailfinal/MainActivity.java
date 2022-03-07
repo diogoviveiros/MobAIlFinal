@@ -151,6 +151,10 @@ public class MainActivity extends AppCompatActivity {
                 deviceList.add(newDevice);
                 Log.d(newDevice.toString(), "device1");
 
+                // NEW
+                // check if deviceHardwareAddress in list of deviceHardwareAddresses seen in the last 15 minutes
+                // based on LocalDateTime.now -> ask if this is staggered or reset every 15 minutes.
+                // END NEW
             }
         }
     };
