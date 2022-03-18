@@ -2,14 +2,16 @@ package com.example.mobailfinal;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.Date;
 
-public class DeviceItem implements Serializable {
+public class DeviceItem implements Serializable{
 
     private String deviceName;
-    private String address;
+    private String hash;
     private boolean aFalse;
     private int signalStrength;
-    private LocalDateTime time;
+    private Date time;
 
     public String getDeviceName() {
         return deviceName;
@@ -19,9 +21,13 @@ public class DeviceItem implements Serializable {
         return aFalse;
     }
 
-    public String getAddress() {
-        return address;
+    public String getHash() {
+        return hash;
     }
+
+    public String getSignalStrength(){ return "" + signalStrength;}
+
+    public Date getTime(){ return this.time;}
 
     public int signalStrength(){
         return signalStrength;
@@ -31,23 +37,20 @@ public class DeviceItem implements Serializable {
         this.deviceName = deviceName;
     }
 
-    public void setTime(LocalDateTime time){ this.time = time;}
+    public void setTime(Date time){ this.time = time;}
 
     public String toString(){
 
-        return "Name: " + deviceName + " (MAC Address: " + address + ")" + " Strength: " + signalStrength + "dBm" + " (Time: " + time.toString() + ")";
+        return "Name: " + deviceName + " (Hash: " + hash + ")" + " Strength: " + signalStrength + "dBm" + " (Time: " + time.toString() + ")";
     }
 
-    public DeviceItem(String name, String address, String aFalse, int signalStrength, LocalDateTime time) {
+    public DeviceItem(String name, String hash, int signalStrength, Date time) {
         this.deviceName = name;
-        this.address = address;
-        if (aFalse == "true") {
-            this.aFalse = true;
-        }
-        else {
-            this.aFalse = false;
-        }
+        this.hash = hash;
+
         this.signalStrength = signalStrength;
         this.time = time;
     }
+
+
 }
