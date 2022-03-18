@@ -250,6 +250,7 @@ public class MainActivity extends AppCompatActivity {
         @RequiresApi(api = Build.VERSION_CODES.O)
         @Override
         public void onReceive(Context context, Intent intent) {
+            // public void onReceive(Context context, Intent intent, ArrayList deviceHardwareAddresses) {
             String action = intent.getAction();
 
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
@@ -335,6 +336,14 @@ public class MainActivity extends AppCompatActivity {
                 // // print list of keys with value > 10 // this is an arbitrary choice rn
                 // END NEW
 
+                // NEW
+                // check if deviceHardwareAddress in HashMap of deviceHardwareAddresses seen in the last 15 minutes
+                // based on LocalDateTime.now -> ask if this is staggered or reset every 15 minutes.
+                // if deviceHardwareAddresses.containsKey(deviceHardwareAddress) {
+                //       deviceHardwareAddresses[deviceHardwareAddress] += 1;
+                // }
+                // // print list of keys with value > 10 // this is an arbitrary choice rn
+                // END NEW
             }
         }
     };
